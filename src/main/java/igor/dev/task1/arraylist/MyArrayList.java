@@ -16,6 +16,14 @@ public interface MyArrayList<T> {
     void add(T item);
 
     /**
+     * Добавляет элемент по заданному индексу.
+     *
+     * @param index - индекс позиции, в которую нужно добавить элемент.
+     * @param item - элемент, который нужно добавить.
+     */
+    void add(int index, T item);
+
+    /**
      * Возвращает элемент по индексу.
      *
      * @param index - индекс элемента.

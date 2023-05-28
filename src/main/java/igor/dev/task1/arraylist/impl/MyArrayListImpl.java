@@ -38,6 +38,27 @@ public class MyArrayListImpl<T> implements MyArrayList<T> {
     }
 
     /**
+     * Добавляет элемент по заданному индексу
+     *
+     * @param index - индекс позиции, в которую нужно добавить элемент.
+     * @param item - элемент, который нужно добавить.
+     */
+    @Override
+    public void add(int index, T item) {
+        if (size == myList.length) {
+            copyMyArrayList();
+        }
+        for (int i = size; i > index; i--) {
+            myList[i] = myList[i - 1];
+        }
+        myList[index] = item;
+        size++;
+        if (size == myList.length) {
+            copyMyArrayList();
+        }
+    }
+
+    /**
      * Получает элемент по указанному индексу.
      *
      * @param index Индекс элемента для получения

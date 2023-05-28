@@ -28,6 +28,17 @@ public class MyArrayListImplTest {
     }
 
     @Test
+    void addShouldAddElementToListByIndex() {
+        list.add(0, "test1");
+        list.add(1, "test2");
+        list.add(5, "test3");
+        assertEquals(3, list.size());
+        assertEquals("test1", list.get(0));
+        assertEquals("test2", list.get(1));
+        assertEquals("test3", list.get(5));
+    }
+
+    @Test
     void getShouldReturnElementByIndex() {
         list.add("test");
         assertEquals("test", list.get(0));
