@@ -9,11 +9,12 @@ import java.util.Comparator;
  */
 public interface MyArrayList<T> {
     /**
-     * Добавляет элемент в список.
+     * Добавляет элемент в список
      *
-     * @param item - элемент, который нужно добавить.
+     * @param item Элемент для добавления
+     * @return true сигнализирует, что переданный элемент был успешно добавлен в список.
      */
-    void add(T item);
+    boolean add(T item);
 
     /**
      * Добавляет элемент по заданному индексу.

@@ -18,30 +18,27 @@ public class MyArrayListImpl<T> implements MyArrayList<T> {
     private int size = 0;
 
     /**
-     * Добавляет элемент в конец списка. Если список заполнен, он
-     * копируется в больший массив для создания большего пространства.
+     * Добавляет элемент в конец списка.
+     * Если текущий размер списка равен его емкости, то емкость увеличивается вдвое.
      *
-     * @param item Элемент для добавления
+     * @param item элемент для добавления в список.
+     * @return true сигнализирует, что переданный элемент был успешно добавлен в список.
      */
     @Override
-    public void add(T item) {
-        for (int i = 0; i < myList.length; i++) {
-            if (myList[i] == null) {
-                myList[i] = item;
-                size++;
-                break;
-            }
-        }
-        if (size > myList.length - 1) {
+    public boolean add(T item) {
+        if (size == myList.length - 1) {
             copyMyArrayList();
         }
+        myList[size] = item;
+        size++;
+        return true;
     }
 
     /**
      * Добавляет элемент по заданному индексу
      *
      * @param index - индекс позиции, в которую нужно добавить элемент.
-     * @param item - элемент, который нужно добавить.
+     * @param item  - элемент, который нужно добавить.
      */
     @Override
     public void add(int index, T item) {
@@ -194,7 +191,7 @@ public class MyArrayListImpl<T> implements MyArrayList<T> {
             while (i <= j && comparator.compare(myList[i], pivot) <= 0) {
                 i++;
             }
-            while (i <=j && comparator.compare(myList[j], pivot) > 0) {
+            while (i <= j && comparator.compare(myList[j], pivot) > 0) {
                 j--;
             }
             if (i < j) {
